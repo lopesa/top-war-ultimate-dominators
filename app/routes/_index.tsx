@@ -38,19 +38,29 @@ export const meta: V2_MetaFunction = () => [
 // const spreadsheetUrl =
 //   "https://docs.google.com/spreadsheets/d/15PqlUgPb9h5gfiT-3JVImW89cJZwegAbnB5KIe2TGW0/gviz/tq?tq=select%20*&tqx=out:csv";
 
+// adjacency matrix
+// const spreadsheetUrl =
+//   "https://docs.google.com/spreadsheets/d/1LJivGZHcTM39PGljUoeclSTab3UT74ZADQCoIktaJVM/gviz/tq?tq=select%20*&tqx=out:csv";
+
+// adjacency set - working currently
 const spreadsheetUrl =
-  "https://docs.google.com/spreadsheets/d/16eEuq3b7Jlp7kSavEMY4a6voGtaEfTGOhXW-svkxSPw/gviz/tq?tq=select%20*&tqx=out:csv";
+  "https://docs.google.com/spreadsheets/d/1ZWH7QXJaX2hcEkX5Gja6sA0hqdXkRMPJQU6H0WPS3P4/gviz/tq?tq=select%20*&tqx=out:csv";
+
+// const spreadsheetUrl =
+//   "https://docs.google.com/spreadsheets/d/16eEuq3b7Jlp7kSavEMY4a6voGtaEfTGOhXW-svkxSPw/gviz/tq?tq=select%20*&tqx=out:csv";
 
 const pyUrl = "http://localhost:5000/visualize";
 
 export const loader = async () => {
-  let layoutFormattedData: LayoutFormattedData = {
-    nodes: [],
-    links: [],
-  };
+  // let layoutFormattedData: LayoutFormattedData = {
+  //   nodes: [],
+  //   links: [],
+  // };
 
   const response = await fetch(spreadsheetUrl);
   const responseBlob = await response.blob();
+
+  debugger;
 
   const pyResponse = await fetch(pyUrl, {
     method: "POST",
